@@ -21,7 +21,7 @@ const formSlice = createSlice({
   name: 'form',
   initialState: initialState,
   reducers: {
-    changeName(state, action: Action){
+    changeName(state: ICarModel, action: Action){
       state.name = action.payload?.name;
     },
     changeCost(state, action: Action){ 

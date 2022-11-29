@@ -4,7 +4,7 @@ import { createSecureServer } from 'http2';
 import { ICarModel, Action } from './formSlice';
 
 
-interface ICarSliceModel {
+export interface ICarSliceModel {
   searchTerm: string | undefined;
   cars: ICarModel[] | undefined;
 }
