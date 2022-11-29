@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-
+import { addCar } from './carSlice';
 
 export interface ICarModel {
   name: string | undefined;
@@ -27,6 +27,16 @@ const formSlice = createSlice({
     changeCost(state, action: Action){ 
       state.cost = action.payload?.cost;
     }
+  },
+  extraReducers(builder) {
+    builder.addCase(addCar, (state: ICarModel, action) => {
+      state.name = "";
+      state.cost = 0;
+    })
+    // addCar(state, action){
+    //   state.name = "";
+    //   state.cost = 0;
+    // }
   }
 })
 
