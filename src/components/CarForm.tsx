@@ -15,7 +15,7 @@ export const CarForm = () => {
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     const nameChangeAction: ICarModel = {
       name: event.target.value,
-      cost: undefined,
+      cost: 0,
       id: undefined
     }
     dispatch(changeName(nameChangeAction))

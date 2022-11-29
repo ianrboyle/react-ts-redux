@@ -3,7 +3,7 @@ import { addCar } from './carSlice';
 
 export interface ICarModel {
   name: string | undefined;
-  cost: number | undefined;
+  cost: number;
   id: string | undefined;
 }
 const initialState: ICarModel = {
@@ -13,7 +13,7 @@ const initialState: ICarModel = {
 }
 
 export interface Action {
-  payload: ICarModel | undefined;
+  payload: ICarModel;
   type: any;
 }
 
@@ -24,7 +24,7 @@ const formSlice = createSlice({
     changeName(state: ICarModel, action: Action){
       state.name = action.payload?.name;
     },
-    changeCost(state, action: Action){ 
+    changeCost(state: ICarModel, action: Action){ 
       state.cost = action.payload?.cost;
     }
   },
