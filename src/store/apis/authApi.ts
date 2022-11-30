@@ -35,12 +35,21 @@ const authApi = createApi({
             body,
           };
         }
-      })
+      }),
+      loginUser: builder.query<IAuthResponseInfo, IAuthRequestInfo>({
+        query: (body: IAuthRequestInfo) => {
+          return {
+            url: 'account/login',
+            method: 'POST',
+            body,
+          };
+        }
+      }),
     }
   }
 });
 
-export const { useRegisterUserQuery } = authApi;
+export const { useRegisterUserQuery, useLoginUserQuery } = authApi;
 export {authApi};
 
 

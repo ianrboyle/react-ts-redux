@@ -1,32 +1,41 @@
-import React from 'react'
-import { useRegisterUserQuery } from '../../store/store';
-import { ErrorPage } from './ErrorPage';
+import React, { ChangeEvent, FormEvent } from 'react'
+import {useDispatch, useSelector} from 'react-redux';
+import { changePassword, changeUserName, IUserModel } from '../../store/slices/authSlice';
+import { IState, useRegisterUserQuery } from '../../store/store';
 import { ILoginProps } from './LoginForm';
 
 
 
-
+//Auth Form will set the username and password - no fetching
 export const AuthForm = ({formName, reduxQueryName}: ILoginProps) => {
+  const { username, password } = useSelector((state: IState )=> {
+    return{
+      username: state.user.username,
+      password: state.user.password
+    }
+  })
 
-  
-  const username = "ianB"
-  const password = "password"
-  const {data, error, isLoading} = useRegisterUserQuery({username, password});
-  
 
-
-  console.log("data: ",data)
-  console.log("error: ", error)
-  console.log("isLoading: ",isLoading)
-  const handleLogin = () => {
-
+  const dispatch = useDispatch();
+  const handleLogin = (event: FormEvent<HTMLFormElement> | undefined) => {
+    event?.preventDefault();
   }
 
-  const handleUserNameChange = () => {
-
+  const handleUserNameChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const usernameChangeAction: IUserModel = {
+      username: event.target.value,
+      password: '',
+      isLoggedIn: false
+    }
+    dispatch(changeUserName(usernameChangeAction))
   }
-  const handlePasswordChange = () => {
-
+  const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const passwordChangeAction: IUserModel = {
+      username: '',
+      password: event.target.value,
+      isLoggedIn: false
+    }
+    dispatch(changePassword(passwordChangeAction))
   }
   
     return (

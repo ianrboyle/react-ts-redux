@@ -1,20 +1,28 @@
-import React from 'react'
-import { useRegisterUserQuery } from '../../store/store';
+import {useDispatch, useSelector} from 'react-redux';
+import { IState, useRegisterUserQuery, useLoginUserQuery } from '../../store/store';
 import { ErrorPage } from './ErrorPage';
 
 
 export const Welcome = () => {
 
-  
-  const username = "ianB"
-  const password = "password"
-  const {data, error, isLoading} = useRegisterUserQuery({username, password});
-  
+ // these need be fetched from a user state with useSelector, so they must be set somewhere else
+  // const username = useSelector((state: IState) => state.user.username)
+  // const password = useSelector((state: IState) => state.user.password)
+  const { username, password } = useSelector((state: IState )=> {
+    return{
+      username: state.user.username,
+      password: state.user.password
+    }
+  })
+  const {data, error, isLoading} = useLoginUserQuery({username, password});
 
 
-  console.log("data: ",data)
-  console.log("error: ", error)
-  console.log("isLoading: ",isLoading)
+  
+  
+
+  // console.log("data: ",data)
+  // console.log("error: ", error)
+  // console.log("isLoading: ",isLoading)
   const handleLogin = () => {
 
   }

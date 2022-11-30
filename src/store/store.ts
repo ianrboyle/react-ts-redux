@@ -10,15 +10,18 @@ import {
 import {authApi} from './apis/authApi';
 
 import { formReducer, changeName, changeCost, ICarModel } from './slices/formSlice';
+import { authFormReducer, changePassword, changeUserName, IUserModel } from './slices/authSlice';
 
 export interface IState {
   form: ICarModel,
-  cars: ICarSliceModel
+  cars: ICarSliceModel,
+  user: IUserModel
 }
 const store = configureStore({
   reducer: {
     cars: carsReducer,
     form: formReducer,
+    user: authFormReducer,
     [authApi.reducerPath]: authApi.reducer
   },
   middleware: (getDefaultMiddleware) => {
@@ -35,6 +38,8 @@ export {
   changeName,
   addCar,
   removeCar,
-  changeSearchTerm
+  changeSearchTerm,
+  changeUserName,
+  changePassword
 };
-export {useRegisterUserQuery} from './apis/authApi';
+export {useRegisterUserQuery, useLoginUserQuery} from './apis/authApi';
