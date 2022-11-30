@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react'
 import {useDispatch, useSelector} from 'react-redux';
-import { changeSearchTerm, IState } from '../../store';
+import { changeSearchTerm, IState } from '../../store/store';
 
 
 export const CarSearch = () => {

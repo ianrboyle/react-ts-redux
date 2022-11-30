@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FormEvent } from 'react'
 import {useDispatch, useSelector} from 'react-redux';
-import { changeName, changeCost, addCar, IState } from '../../store';
+import { changeName, changeCost, addCar, IState } from '../../store/store';
+
 import { ICarModel } from '../../store/slices/formSlice';
 
 export const CarForm = () => {

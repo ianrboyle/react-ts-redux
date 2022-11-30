@@ -1,5 +1,5 @@
 import {useSelector} from 'react-redux'
-import { IState } from '../../store'
+import { IState } from '../../store/store';
 export const CarValue = () => {
 
   const carValue = useSelector((state: IState) =>{

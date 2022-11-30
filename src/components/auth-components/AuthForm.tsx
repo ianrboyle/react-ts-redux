@@ -1,11 +1,23 @@
 import React from 'react'
+import { useRegisterUserQuery } from '../../store/store';
+import { ErrorPage } from './ErrorPage';
+import { ILoginProps } from './LoginForm';
 
-type FormName = {
-  formName: string;
-}
-export const AuthForm = (props: FormName) => {
-  const username = "sdfs"
-  const password = "fasdf"
+
+
+
+export const AuthForm = ({formName, reduxQueryName}: ILoginProps) => {
+
+  
+  const username = "ianB"
+  const password = "password"
+  const {data, error, isLoading} = useRegisterUserQuery({username, password});
+  
+
+
+  console.log("data: ",data)
+  console.log("error: ", error)
+  console.log("isLoading: ",isLoading)
   const handleLogin = () => {
 
   }
@@ -16,9 +28,10 @@ export const AuthForm = (props: FormName) => {
   const handlePasswordChange = () => {
 
   }
-  return (
+  
+    return (
     <div className="car-form panel">
-    <h4 className="subtitle is-3">{props.formName}</h4>
+    <h4 className="subtitle is-3">{formName}</h4>
     <form onSubmit={handleLogin} action="">
     <div className='field-group'>
       <div className='field'>

@@ -1,8 +1,5 @@
-import React from 'react'
-import { ICarModel } from '../../store/slices/formSlice'
 import {useDispatch, useSelector} from 'react-redux';
-import { changeName, changeCost, addCar, IState, removeCar } from '../../store';
-import { carsReducer } from '../../store/slices/carSlice';
+import { IState, removeCar } from '../../store/store';
 
 export const CarList = () => {
   const carList = useSelector((state: IState) => {
@@ -12,15 +9,6 @@ export const CarList = () => {
   
   })
 
-  // const carsToShow = carList?.map((car) => {
-  //     if (searchTerm){
-  //       if (car.name?.includes(searchTerm)){
-  //         return car
-  //       }
-  //     } else {
-  //       return car
-  //     }
-  // })
 
   const dispatch = useDispatch();
   const removeCarFromList = (carId: string | undefined) => {
