@@ -1,8 +1,8 @@
 import React from 'react'
-import { ICarModel } from '../store/slices/formSlice'
+import { ICarModel } from '../../store/slices/formSlice'
 import {useDispatch, useSelector} from 'react-redux';
-import { changeName, changeCost, addCar, IState, removeCar } from '../store';
-import { carsReducer } from '../store/slices/carSlice';
+import { changeName, changeCost, addCar, IState, removeCar } from '../../store';
+import { carsReducer } from '../../store/slices/carSlice';
 
 export const CarList = () => {
   const carList = useSelector((state: IState) => {

@@ -1,7 +1,5 @@
-import React from 'react'
 import {useSelector} from 'react-redux'
-import { IState } from '../store'
-import { carsReducer } from '../store/slices/carSlice'
+import { IState } from '../../store'
 export const CarValue = () => {
 
   const carValue = useSelector((state: IState) =>{

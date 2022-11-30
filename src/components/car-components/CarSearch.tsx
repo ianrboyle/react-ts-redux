@@ -1,7 +1,8 @@
-import React, { ChangeEvent } from 'react'
-import { ICarModel } from '../store/slices/formSlice'
+import { ChangeEvent } from 'react'
 import {useDispatch, useSelector} from 'react-redux';
-import { changeSearchTerm, IState, removeCar } from '../store';
+import { changeSearchTerm, IState } from '../../store';
+
+
 export const CarSearch = () => {
 
   const searchTerm = useSelector((state: IState) => state.cars.searchTerm);
