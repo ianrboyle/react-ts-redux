@@ -7,8 +7,8 @@ export interface IAuthResponseInfo {
 }
 
 export interface IAuthRequestInfo {
-  username: string,
-  password: string
+  username: string | undefined,
+  password: string | undefined
 }
 export interface ILoginState {
   isLoading: boolean;

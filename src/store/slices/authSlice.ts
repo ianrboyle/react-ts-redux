@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export interface IUserModel {
-  username: string;
-  password: string;
-  loginAttempted: boolean;
-  isRegistration: boolean | undefined;
+  username: string | undefined;
+  password: string | undefined;
+  loginAttempted?: boolean;
+  isRegistration?: boolean | undefined;
 }
 const initialState: IUserModel = {
   username: '',

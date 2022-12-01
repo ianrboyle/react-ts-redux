@@ -6,6 +6,8 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { BasicForm } from './BasicForm';
+import { Container } from '@mui/material';
+import '../../css/card.css'
 
 // const bull = (
 //   <Box
@@ -18,10 +20,12 @@ import { BasicForm } from './BasicForm';
 
 export default function FormCard() {
   return (
-    <Card sx={{ minWidth: 100 }}>
+    <Container className="card-container" maxWidth="sm">
+    <Card className="card" sx={{ minWidth: 100 }}>
       <CardContent>
       <BasicForm />
       </CardContent>
     </Card>
+    </Container>
   );
 }
