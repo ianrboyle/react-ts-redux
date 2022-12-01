@@ -3,15 +3,15 @@ import { AuthForm } from './AuthForm'
 
 export interface ILoginProps {
     formName: string;
-    reduxQueryName: string;
+    isRegistration: boolean
   
 }
 export const LoginForm = () => {
   const loginProps: ILoginProps = {
     formName: "Login",
-    reduxQueryName: "Login"
+    isRegistration: false
   }
   return (
-    <AuthForm formName={loginProps.formName} reduxQueryName={loginProps.reduxQueryName}/>
+    <AuthForm formName={loginProps.formName} isRegistration={loginProps.isRegistration}/>
   )
 }

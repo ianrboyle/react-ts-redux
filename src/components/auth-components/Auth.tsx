@@ -6,19 +6,18 @@ import { Welcome } from './Welcome';
 import { useSelector } from 'react-redux';
 
 export const Auth = () => {
-  const { username, password } = useSelector((state: IState )=> {
+  const { loginAttempted } = useSelector((state: IState )=> {
     return{
-      username: state.user.username,
-      password: state.user.password
+      loginAttempted: state.user.loginAttempted
     }
   })
-  const {data, error, isLoading} = useLoginUserQuery({username, password});
-  let isLoggedIn = false;
-  if (data) {
-    isLoggedIn = !isLoggedIn;
-  }
+  // const {data, error, isLoading} = useLoginUserQuery({username, password});
+  // let isLoggedIn = false;
+  // if (data) {
+  //   isLoggedIn = !isLoggedIn;
+  // }
 
-  return !isLoggedIn ? 
+  return !loginAttempted ? 
     <div>
       <LoginForm />
       <RegisterForm />

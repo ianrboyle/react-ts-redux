@@ -7,9 +7,9 @@ import { ILoginProps } from './LoginForm';
 export const RegisterForm = () => {
   const loginProps: ILoginProps = {
     formName: "Register",
-  reduxQueryName: "Regiseter"
+    isRegistration: true
   }
   return (
-    <AuthForm formName={loginProps.formName} reduxQueryName={loginProps.reduxQueryName}/>
+    <AuthForm formName={loginProps.formName} isRegistration={loginProps.isRegistration}/>
   )
 }

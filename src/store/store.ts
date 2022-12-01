@@ -10,7 +10,7 @@ import {
 import {authApi} from './apis/authApi';
 
 import { formReducer, changeName, changeCost, ICarModel } from './slices/formSlice';
-import { authFormReducer, changePassword, changeUserName, IUserModel } from './slices/authSlice';
+import { addLoginParams, authFormReducer, changePassword, changeUserName, IUserModel } from './slices/authSlice';
 
 export interface IState {
   form: ICarModel,
@@ -40,6 +40,7 @@ export {
   removeCar,
   changeSearchTerm,
   changeUserName,
-  changePassword
+  changePassword,
+  addLoginParams
 };
 export {useRegisterUserQuery, useLoginUserQuery} from './apis/authApi';

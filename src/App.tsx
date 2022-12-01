@@ -6,8 +6,8 @@ import { Car } from './components/car-components/Car';
 function App() {
   return (
     <div className="App">
-      <Car />
-      <Auth />
+      {/* <Car />
+      <Auth /> */}
     </div>
   );
 }
