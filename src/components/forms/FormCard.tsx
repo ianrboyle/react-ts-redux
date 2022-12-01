@@ -9,15 +9,6 @@ import { BasicForm } from './BasicForm';
 import { Container } from '@mui/material';
 import '../../css/card.css'
 
-// const bull = (
-//   <Box
-//     component="span"
-//     sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-//   >
-//     •
-//   </Box>
-// );
-
 export default function FormCard() {
   return (
     <Container className="card-container" maxWidth="sm">
