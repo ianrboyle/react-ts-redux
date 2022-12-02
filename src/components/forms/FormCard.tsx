@@ -11,15 +11,13 @@ import '../../css/card.css'
 
 
 
-interface IButtonText {
-  buttonText: string
-}
-export default function FormCard(buttonText: IButtonText) {
+
+export default function FormCard(buttonText: string) {
   return (
     <Container className="card-container" maxWidth="sm">
     <Card className="card" sx={{ minWidth: 100 }}>
       <CardContent>
-      <BasicForm buttonText={buttonText.buttonText}/>
+      <BasicForm buttonText={buttonText}/>
       </CardContent>
     </Card>
     </Container>
