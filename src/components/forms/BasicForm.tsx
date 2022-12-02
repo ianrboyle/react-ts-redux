@@ -16,7 +16,11 @@ type State = {
   loading: boolean,
   message: string
 };
-export const BasicForm = () => {
+
+interface IButtonText {
+  buttonText: string
+}
+export const BasicForm = ({buttonText}: IButtonText) => {
  
 
   const [loginInfo, setLoginInfo] = useState<IUserModel>();
@@ -62,7 +66,7 @@ export const BasicForm = () => {
           />
         </Typography>
   
-      <Button type="submit" variant="outlined">Login</Button>
+      <Button type="submit" variant="outlined">{buttonText}</Button>
       </form>
 
   )

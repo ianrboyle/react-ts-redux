@@ -9,12 +9,17 @@ import { BasicForm } from './BasicForm';
 import { Container } from '@mui/material';
 import '../../css/card.css'
 
-export default function FormCard() {
+
+
+interface IButtonText {
+  buttonText: string
+}
+export default function FormCard(buttonText: IButtonText) {
   return (
     <Container className="card-container" maxWidth="sm">
     <Card className="card" sx={{ minWidth: 100 }}>
       <CardContent>
-      <BasicForm />
+      <BasicForm buttonText={buttonText.buttonText}/>
       </CardContent>
     </Card>
     </Container>
