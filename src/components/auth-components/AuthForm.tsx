@@ -1,8 +1,9 @@
 import React, { ChangeEvent, FormEvent } from 'react'
 import {useDispatch, useSelector} from 'react-redux';
+import { ILoginProps } from '../../models/login.model';
 import { addLoginParams, changePassword, changeUserName, IUserModel } from '../../store/slices/authSlice';
 import { IState, useRegisterUserQuery } from '../../store/store';
-import { ILoginProps } from './LoginForm';
+
 
 
 

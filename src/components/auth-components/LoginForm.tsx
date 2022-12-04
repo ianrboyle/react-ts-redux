@@ -1,11 +1,8 @@
 import React from 'react'
+import { ILoginProps } from '../../models/login.model'
 import { AuthForm } from './AuthForm'
 
-export interface ILoginProps {
-    formName: string;
-    isRegistration: boolean
-  
-}
+
 export const LoginForm = () => {
   const loginProps: ILoginProps = {
     formName: "Login",

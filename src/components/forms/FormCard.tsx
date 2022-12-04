@@ -8,16 +8,18 @@ import Typography from '@mui/material/Typography';
 import { BasicForm } from './BasicForm';
 import { Container } from '@mui/material';
 import '../../css/card.css'
+import { ILoginProps } from '../../models/login.model';
 
 
 
 
-export default function FormCard(buttonText: string) {
+
+export default function FormCard(loginProps: ILoginProps) {
   return (
     <Container className="card-container" maxWidth="sm">
     <Card className="card" sx={{ minWidth: 100 }}>
       <CardContent>
-      <BasicForm buttonText={buttonText}/>
+      <BasicForm formName={loginProps.formName}/>
       </CardContent>
     </Card>
     </Container>

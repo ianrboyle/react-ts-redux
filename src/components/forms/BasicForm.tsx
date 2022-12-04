@@ -6,6 +6,7 @@ import Stack from '@mui/material/Stack';
 import { Typography } from '@mui/material';
 import { IUserModel } from '../../store/slices/authSlice';
 import AuthService from "../../services/auth.service";
+import { ILoginProps } from '../../models/login.model';
 
 type Props = {};
 
@@ -17,14 +18,12 @@ type State = {
   message: string
 };
 
-interface IButtonText {
-  buttonText: string
-}
-export const BasicForm = ({buttonText}: IButtonText) => {
+
+export const BasicForm = (loginProps: ILoginProps) => {
  
 
   const [loginInfo, setLoginInfo] = useState<IUserModel>();
-
+  console.log("LOGINPROPS: ", loginProps)
   const handleLogin = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (loginInfo?.username && loginInfo?.password){
@@ -66,7 +65,7 @@ export const BasicForm = ({buttonText}: IButtonText) => {
           />
         </Typography>
   
-      <Button type="submit" variant="outlined">{buttonText}</Button>
+      <Button type="submit" variant="outlined">{loginProps.formName}</Button>
       </form>
 
   )

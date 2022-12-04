@@ -1,6 +1,6 @@
 import React from 'react'
 import { AuthForm } from './AuthForm';
-import { ILoginProps } from './LoginForm';
+import { ILoginProps } from '../../models/login.model';
 
 
 

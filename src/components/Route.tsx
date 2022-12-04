@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react'
+import { RouteProps } from "react-router";
 interface IRouteProps {
   path: string;
-  children: any;
+  children: RouteProps["children"];
 }
-export const Route = ({path, children}: IRouteProps) => {
+export const Route: React.FC<IRouteProps> = ({path, children}: IRouteProps) => {
   useEffect(() => {
     const onLocationChange = () => {
       console.log("Location change")
+      console.log("CHILDREN: ", children)
     }
 
     window.addEventListener('popstate', onLocationChange)
@@ -15,5 +17,5 @@ export const Route = ({path, children}: IRouteProps) => {
       window.removeEventListener('popstate', onLocationChange)
     };
   }, [])
-  return window.location.pathname === path ? children : null
+  return window.location.pathname === path ? <div>{children}</div> : null
 };

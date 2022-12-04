@@ -33,6 +33,9 @@ export default function NavBar() {
           <Button color="inherit"><Link href='/register'>
               Register
             </Link></Button>
+          <Button color="inherit"><a href='/register'>
+              Register
+            </a></Button>
         </Toolbar>
       </AppBar>
     </Box>

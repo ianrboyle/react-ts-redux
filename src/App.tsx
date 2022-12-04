@@ -14,13 +14,11 @@ function App() {
   return (
     <div className="App">
         <NavBar />
-        <Route path="/login">
-        <LoginPage buttonText="Login"/>
+        <LoginPage formName="Login"/>
 
-        </Route>
-        <Route path="/register">
-          <RegisterPage />
-        </Route>
+
+          <RegisterPage formName="Register" />
+
     </div>
   );
 }
