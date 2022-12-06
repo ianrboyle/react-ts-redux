@@ -6,7 +6,9 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import {Link} from './Link';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
+import { LoginForm } from './auth-components/LoginForm';
+import { RegisterForm } from './auth-components/RegisterForm';
 
 export default function NavBar() {
   return (
@@ -26,16 +28,19 @@ export default function NavBar() {
             News
           </Typography>
           <Button color="inherit">
-            <Link href='/login'>
+            <Link to='/login'>
               Login
             </Link>
             </Button>
-          <Button color="inherit"><Link href='/register'>
+         
+              <Button color="inherit"><Link to='/register'>
               Register
             </Link></Button>
-          <Button color="inherit"><a href='/register'>
+            {/* <Route path="/register" element={<RegisterForm/>}> */}
+          <Button color="inherit"><Link to='/register'>
               Register
-            </a></Button>
+            </Link></Button>
+            {/* </ Route> */}
         </Toolbar>
       </AppBar>
     </Box>
