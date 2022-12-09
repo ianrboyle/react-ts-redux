@@ -9,8 +9,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import { LoginForm } from './auth-components/LoginForm';
 import { RegisterForm } from './auth-components/RegisterForm';
+import  AuthService from '../services/auth.service'
 
 export default function NavBar() {
+
+  AuthService.getCurrentUser();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -36,11 +39,7 @@ export default function NavBar() {
               <Button color="inherit"><Link to='/register'>
               Register
             </Link></Button>
-            {/* <Route path="/register" element={<RegisterForm/>}> */}
-          <Button color="inherit"><Link to='/register'>
-              Register
-            </Link></Button>
-            {/* </ Route> */}
+            <Button color="inherit" onClick={() => AuthService.logout()}>Logout</Button>
         </Toolbar>
       </AppBar>
     </Box>

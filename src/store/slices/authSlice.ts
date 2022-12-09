@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import AuthService from '../../services/auth.service';
 
 export interface IUserModel {
   username: string | undefined;
@@ -32,10 +33,16 @@ const authSlice = createSlice({
       state.username = action.payload?.username;
       state.password = action.payload?.password;
       state.loginAttempted = true;
+    },
+    tryLogin(state, action: IUserAction){
+      if (action.payload.username && action.payload.password){
+        let login = AuthService.login(action.payload.username, action.payload.password);
+        console.log("TRY LOGIN INFO: ",login)
+      }
     }
   }
 })
 
-export const {changeUserName, changePassword, addLoginParams} = authSlice.actions;
+export const {changeUserName, changePassword, addLoginParams, tryLogin} = authSlice.actions;
 
 export const authFormReducer = authSlice.reducer;

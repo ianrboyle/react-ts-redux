@@ -7,7 +7,9 @@ import { Typography } from '@mui/material';
 import { IUserModel } from '../../store/slices/authSlice';
 import AuthService from "../../services/auth.service";
 import { ILoginProps } from '../../models/login.model';
-
+import {Link } from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import { tryLogin} from '../../store/store';
 type Props = {};
 
 type State = {
@@ -21,22 +23,29 @@ type State = {
 
 export const BasicForm = (loginProps: ILoginProps) => {
  
-
+  const dispatch = useDispatch();
   const [loginInfo, setLoginInfo] = useState<IUserModel>();
-  console.log("LOGINPROPS: ", loginProps)
+
+
   const handleLogin = (event: FormEvent<HTMLFormElement>) => {
+    console.log("HandleLogin", loginInfo)
     event.preventDefault();
     if (loginInfo?.username && loginInfo?.password){
-      console.log("did this get hit?")
-      AuthService.login(loginInfo.username, loginInfo.password)
+      console.log("Does this get hit?")
+      // AuthService.login(loginInfo.username, loginInfo.password)
+      const loginActionInfo: IUserModel = {
+        username: loginInfo.username,
+        password: loginInfo.password
+      }
+      dispatch(tryLogin(loginActionInfo))
     }
-    console.log(loginInfo)
   }
   const handleUserNameInput = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{
     setLoginInfo({
       username: event.target.value,
       password: loginInfo?.password
     })
+    console.log("LOGIN INFO",loginInfo)
    
   }
 
