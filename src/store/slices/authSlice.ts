@@ -7,11 +7,22 @@ export interface IUserModel {
   loginAttempted?: boolean;
   isRegistration?: boolean | undefined;
 }
+
+interface ILoginSuccessModel {
+  username: string;
+  token: string;
+}
 const initialState: IUserModel = {
   username: '',
   password: '',
   loginAttempted: false,
   isRegistration: undefined
+}
+
+interface ITryLoginState {
+  isLoading: boolean;
+  error: any;
+  data: ILoginSuccessModel
 }
 
 export interface IUserAction {
@@ -34,10 +45,13 @@ const authSlice = createSlice({
       state.password = action.payload?.password;
       state.loginAttempted = true;
     },
-    tryLogin(state, action: IUserAction){
+    tryLogin(state: IUserModel, action: IUserAction){
       if (action.payload.username && action.payload.password){
-        let login = AuthService.login(action.payload.username, action.payload.password);
-        console.log("TRY LOGIN INFO: ",login)
+         AuthService.login(action.payload.username, action.payload.password).then((r ) =>{
+          console.log("RESPONSE: ", r)
+          return r;
+         });
+        console.log("TRY LOGIN INFO: ",)
       }
     }
   }

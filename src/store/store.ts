@@ -10,7 +10,8 @@ import {
 import {authApi} from './apis/authApi';
 
 import { formReducer, changeName, changeCost, ICarModel } from './slices/formSlice';
-import { addLoginParams, authFormReducer, changePassword, changeUserName, IUserModel, tryLogin } from './slices/authSlice';
+import { addLoginParams, authFormReducer, changePassword, changeUserName, IUserModel } from './slices/authSlice';
+import { loginFormReducer, tryLogin } from './slices/loginSlice';
 
 export interface IState {
   form: ICarModel,
@@ -22,6 +23,7 @@ const store = configureStore({
     cars: carsReducer,
     form: formReducer,
     user: authFormReducer,
+    login: loginFormReducer,
     [authApi.reducerPath]: authApi.reducer
   },
   middleware: (getDefaultMiddleware) => {

@@ -42,12 +42,12 @@ export const Welcome = () => {
       const errMsg = 'error' in error ? error.error : JSON.stringify(error.data)
 
       return (
-        <ErrorPage errorString={"Error"} />
+        <ErrorPage />
       )
     }
     else {
         // you can access all properties of `SerializedError` here
-        <ErrorPage errorString={error.message} />
+        <ErrorPage />
     }
   }
   if (data) {

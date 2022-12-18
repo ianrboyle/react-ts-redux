@@ -6,6 +6,7 @@ import { RegisterPage } from './components/forms/RegisterPage';
 import NavBar from './components/NavBar';
 import { LoginForm } from './components/auth-components/LoginForm';
 import { UserComponent } from './components/UserComponent';
+import { ErrorPage } from './components/auth-components/ErrorPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
 
         <Route path="/login" element={<LoginPage formName="Login"/>} />
         <Route path="/register" element={<RegisterPage formName="Register"/>} />
+        <Route path="/error" element={<ErrorPage />} />
         <Route path="/user" element={<UserComponent />} />
         </Routes>
 

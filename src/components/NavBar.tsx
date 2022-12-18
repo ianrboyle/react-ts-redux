@@ -1,4 +1,3 @@
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -6,9 +5,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
-import { LoginForm } from './auth-components/LoginForm';
-import { RegisterForm } from './auth-components/RegisterForm';
+import {Link} from 'react-router-dom';
 import  AuthService from '../services/auth.service'
 
 export default function NavBar() {
@@ -35,10 +32,16 @@ export default function NavBar() {
               Login
             </Link>
             </Button>
-         
-              <Button color="inherit"><Link to='/register'>
+            <Button color="inherit">
+              <Link to='/register'>
               Register
-            </Link></Button>
+            </Link>
+            </Button>
+              <Button color="inherit">
+                <Link to='/error'>
+              Error
+            </Link>
+            </Button>
             <Button color="inherit" onClick={() => AuthService.logout()}>Logout</Button>
         </Toolbar>
       </AppBar>
